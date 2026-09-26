@@ -2,6 +2,12 @@
 
 AI Gym Coach is a real-time fitness assistant that uses computer vision to analyze exercise form, track repetitions, and provide coaching feedback through the webcam. It is built as a Streamlit app and includes a separate landing page for product presentation.
 
+## Project Links
+
+- **Project folder:** [ai-gym-coach-main](https://github.com/Ankitkumar3002/Ai-Gym-Trainer/tree/main/ai-gym-coach-main)
+- **Live application:** [AI Real-time GYM Coach](https://ai-realtime-gym-coach.streamlit.app/)
+- **Repository:** [Ankitkumar3002/Ai-Gym-Trainer](https://github.com/Ankitkumar3002/Ai-Gym-Trainer)
+
 ## Overview
 
 This project combines:
@@ -59,22 +65,24 @@ AI-Gym-Trainer/
 │       ├── static/
 │       ├── tutorial-info/
 │       └── ...
-└── README.md (repository-level overview)
+└── README.md
 ```
 
 ## Application Modules
 
 ### Landing Page
+
 The `LandingPage` folder contains the marketing website for the app. It includes a hero section, feature highlights, metrics, demo video area, and contact links.
 
 ### Main App
+
 The `Main App` folder contains the actual AI trainer application.
 
 Important parts include:
 
 - `main.py` — app entry point, workout flow, camera integration, and session UI
 - `detectors/` — pose and movement evaluation logic for each exercise
-- `services/` — app services for auth, coaching, state, persistence, tracking, UI, and computer vision
+- `services/` — app services for authentication, coaching, state, persistence, tracking, UI, and computer vision
 - `static/` — front-end styling assets for the Streamlit app
 - `requirements.txt` — Python dependencies
 
@@ -96,7 +104,7 @@ The app supports detection and feedback for these exercise types:
 4. MediaPipe pose landmarks are processed frame by frame.
 5. Exercise-specific detectors calculate joint angles and movement quality.
 6. The app tracks rep counts and updates workout progress.
-7. AI coach provides real-time corrective instructions using voice and chat feedback.
+7. The AI coach provides real-time corrective instructions using voice and chat feedback.
 8. Workout history is stored for future review.
 
 ## Local Setup
@@ -135,21 +143,39 @@ Create a `.env` file or export the environment variable:
 export GROQ_API_KEY="your_api_key_here"
 ```
 
+On Windows PowerShell:
+
+```powershell
+$env:GROQ_API_KEY="your_api_key_here"
+```
+
 ### 6. Run the app
 
 ```bash
 streamlit run main.py
 ```
 
+## Landing Page
+
+To preview the static landing page, open `ai-gym-coach-main/LandingPage/index.html` in a browser or serve the directory with a local HTTP server:
+
+```bash
+cd ai-gym-coach-main/LandingPage
+python -m http.server 8000
+```
+
+Then visit [http://localhost:8000](http://localhost:8000).
+
 ## Environment Notes
 
 - Webcam access is required for real-time pose detection.
 - A valid Groq API key is required for AI coaching voice feedback.
 - The app is optimized for local machine use and browser-based execution.
+- Use a well-lit environment and position your full body within the camera frame for better pose detection.
 
 ## Screenshots and Demo
 
-This project includes a landing page UI with product presentation assets. The app itself is designed to work in browser sessions and leverages the user's webcam for live analysis.
+The landing page includes product presentation assets, a gallery, and a demo video section. The main application works in a browser session and uses the user's webcam for live exercise analysis.
 
 ## Future Improvements
 
